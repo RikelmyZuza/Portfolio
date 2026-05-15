@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rikelmy.dev — portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#hero" class="active" data-i="0">início</a>
+      <a href="#projetos" data-i="1">projetos</a>
+      <a href="#skills" data-i="2">skills</a>
+      <a href="#contato" data-i="3">contato</a>
+    </div>
+    <button class="ctrl-btn" id="lang-btn" title="Switch language">EN</button>
+    <button class="ctrl-btn ctrl-icon" id="theme-btn" title="Toggle theme">◐</button>
+  </div>
+</nav>
+
+<main>
+  <section id="hero">
+    <div class="hero-kicker"><span class="kicker-line"></span><span id="kicker-txt">DESENVOLVEDOR JUNIOR</span></div>
+    <h1 class="hero-title">
+      <span class="word w1"><span class="word-inner" id="hw0">Rikelmy</span></span>&thinsp;
+      <span class="word w2"><span class="word-inner"><span class="dim" id="hw1">Zuza</span></span></span>
+    </h1>
+
+    <div class="hero-intro-line" id="hero-intro">
+      <span class="intro-label" id="intro-label">me chamo</span>
+      <span class="intro-name">Rikelmy Zuza</span>
+      <span class="intro-sep">—</span>
+      <span class="intro-tagline" id="intro-tagline">desenvolvo desde o zero até o deploy</span>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-desc" id="hero-desc">Apaixonado por construir soluções funcionais e aprender novas tecnologias. Trabalhando com Python, JavaScript, Node.js e muito mais.</p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-solid" id="cta1">ver projetos →</a>
+        <a href="#contato" class="btn btn-ghost" id="cta2">contato</a>
+      </div>
+    </div>
+
+    <div class="hero-meta" id="hero-meta">
+      <div class="meta-item">
+        <span class="meta-icon">◎</span>
+        <span id="meta-loc">Brasil</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-icon">↯</span>
+        <span id="meta-projects">2 projetos públicos</span>
+      </div>
+      <div class="meta-divider"></div>
+      <div class="meta-item">
+        <span class="meta-icon">◈</span>
+        <span id="meta-stack">Python · JS · Node</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projetos">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" id="proj-title">Projetos</h2>
+      <span class="sec-num">02</span>
+    </div>
+    <div class="proj-list">
+
+      <a href="https://github.com/RikelmyZuza/BlackHornet" target="_blank" class="proj-item reveal rd1">
+        <span class="proj-idx">01</span>
+        <div class="proj-info">
+          <div class="proj-name" id="pn1">Black Hornet — App de Receitas de Café</div>
+          <div class="proj-sub" id="pd1">Aplicação web para explorar e aprender receitas de café. Interface completa com front-end, back-end Node.js e banco de dados MySQL.</div>
+        </div>
+        <div class="proj-right">
+          <div class="proj-pills">
+            <span class="pill">JavaScript</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">MySQL</span>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/RikelmyZuza/ProjetoPy" target="_blank" class="proj-item reveal rd2">
+        <span class="proj-idx">02</span>
+        <div class="proj-info">
+          <div class="proj-name" id="pn2">Sistema de Cadastro de Alunos</div>
+          <div class="proj-sub" id="pd2">Sistema desktop com interface gráfica Tkinter para cadastro, edição e exclusão de alunos. Utiliza SQLite para persistência de dados e autenticação por email e senha.</div>
+        </div>
+        <div class="proj-right">
+          <div class="proj-pills">
+            <span class="pill">Python</span>
+            <span class="pill">Tkinter</span>
+            <span class="pill">SQLite</span>
+          </div>
+          <span class="proj-arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" id="sk-title">Habilidades</h2>
+      <span class="sec-num">03</span>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-col reveal rd1">
+        <div class="sk-col-name">FRONTEND</div>
+        <div class="sk-row"><div class="sk-label"><span>HTML</span><span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" data-w="75"></div></div></div>
+        <div class="sk-row"><div class="sk-label"><span>CSS</span><span class="sk-pct">70%</span></div><div class="sk-track"><div class="sk-fill" data-w="70"></div></div></div>
+        <div class="sk-row"><div class="sk-label"><span>JavaScript</span><span class="sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" data-w="65"></div></div></div>
+      </div>
+      <div class="sk-col reveal rd2">
+        <div class="sk-col-name">BACKEND</div>
+        <div class="sk-row"><div class="sk-label"><span>Python</span><span class="sk-pct">70%</span></div><div class="sk-track"><div class="sk-fill" data-w="70"></div></div></div>
+        <div class="sk-row"><div class="sk-label"><span>Node.js</span><span class="sk-pct">60%</span></div><div class="sk-track"><div class="sk-fill" data-w="60"></div></div></div>
+        <div class="sk-row"><div class="sk-label"><span>MySQL / SQLite</span><span class="sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" data-w="65"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contato">
+    <div class="sec-head reveal">
+      <h2 class="sec-title" id="ct-title">Contato</h2>
+      <span class="sec-num">04</span>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:zuzarikelmy@gmail.com" class="c-card reveal rd1">
+        <div class="c-type">EMAIL</div>
+        <div class="c-val">zuzarikelmy@gmail.com</div>
+        <div class="c-arrow">↗</div>
+      </a>
+      <a href="https://github.com/RikelmyZuza" target="_blank" class="c-card reveal rd2">
+        <div class="c-type">GITHUB</div>
+        <div class="c-val">@RikelmyZuza</div>
+        <div class="c-arrow">↗</div>
+      </a>
+      <a href="https://www.linkedin.com/in/rikelmy-zuza-1b024b34a/" target="_blank" class="c-card reveal rd3">
+        <div class="c-type">LINKEDIN</div>
+        <div class="c-val">rikelmy-zuza</div>
+        <div class="c-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="status"><span class="dot"></span><span class="f-txt" id="status-txt">disponível para oportunidades</span></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
