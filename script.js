@@ -37,8 +37,8 @@ const copy = {
   }
 };
 
-let lang = 'pt';
-let dark = false;
+let lang = localStorage.getItem('portfolio-lang') || 'pt';
+let dark = localStorage.getItem('portfolio-theme') === 'dark';
 
 function applyLang(l) {
   const c = copy[l];
@@ -59,7 +59,9 @@ function applyLang(l) {
   document.getElementById('pd2').textContent = c.pd2;
   document.getElementById('status-txt').textContent = c.status;
   document.getElementById('meta-loc').textContent = c.metaLoc;
-  document.getElementById('meta-projects').textContent = c.metaProjects;
+  const projCount = document.querySelectorAll('.proj-item').length;
+  document.getElementById('meta-projects').textContent =
+    l === 'pt' ? `${projCount} projetos públicos` : `${projCount} public projects`;
   document.getElementById('meta-stack').textContent = c.metaStack;
   document.querySelectorAll('.nav-links a').forEach((a, i) => { a.textContent = c.nav[i]; });
   document.getElementById('lang-btn').textContent = l === 'pt' ? 'EN' : 'PT';
@@ -68,14 +70,30 @@ function applyLang(l) {
 
 document.getElementById('lang-btn').addEventListener('click', () => {
   lang = lang === 'pt' ? 'en' : 'pt';
+  localStorage.setItem('portfolio-lang', lang);
   applyLang(lang);
 });
 
+function applyTheme() {
+  if (dark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  const btn = document.getElementById('theme-btn');
+  btn.textContent = dark ? '○' : '◐';
+  btn.setAttribute('aria-pressed', String(dark));
+}
+
 document.getElementById('theme-btn').addEventListener('click', () => {
   dark = !dark;
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
-  document.getElementById('theme-btn').textContent = dark ? '○' : '◐';
+  localStorage.setItem('portfolio-theme', dark ? 'dark' : 'light');
+  applyTheme();
 });
+
+// Aplica idioma e tema salvos (ou padrão) assim que a página carrega
+applyLang(lang);
+applyTheme();
 
 // Scroll reveal + skill bars
 const obs = new IntersectionObserver(entries => {
@@ -88,12 +106,20 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
+// Active nav link on scroll (com throttle via requestAnimationFrame para reduzir custo de reflow)
+let scrollTicking = false;
+function updateActiveNav() {
   const secs = document.querySelectorAll('section[id]');
   let cur = '';
   secs.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
   document.querySelectorAll('.nav-links a').forEach(a => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
   });
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateActiveNav);
+    scrollTicking = true;
+  }
 }, { passive: true });
